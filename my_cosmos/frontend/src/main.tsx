@@ -5,15 +5,16 @@ import "./index.css";
 import { AppShell } from "./layouts/AppShell";
 import { ComingSoonPage } from "./pages/ComingSoonPage";
 import { ExplorePage } from "./pages/ExplorePage";
+import { PapersPage } from "./pages/PapersPage";
 
 const soon = (title: string, lesson: string) => <ComingSoonPage title={title} lesson={lesson} />;
 
 const router = createBrowserRouter([
   {
-    element: <AppShell />, // the layout around every page
+    element: <AppShell />,
     children: [
       { path: "/", element: <ExplorePage /> },
-      { path: "/papers", element: soon("Research explorer", "Lesson 10") },
+      { path: "/papers", element: <PapersPage /> },
       { path: "/papers/:id", element: soon("Paper page", "Lesson 13") },
       { path: "/search", element: soon("Semantic search", "Lesson 12") },
       { path: "/map", element: soon("Research map", "Lesson 14") },
