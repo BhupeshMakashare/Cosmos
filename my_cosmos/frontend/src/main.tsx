@@ -5,6 +5,7 @@ import "./index.css";
 import { AppShell } from "./layouts/AppShell";
 import { ComingSoonPage } from "./pages/ComingSoonPage";
 import { ExplorePage } from "./pages/ExplorePage";
+import { PaperPage } from "./pages/PaperPage";
 import { PapersPage } from "./pages/PapersPage";
 import { SearchPage } from "./pages/SearchPage";
 
@@ -16,7 +17,7 @@ const router = createBrowserRouter([
     children: [
       { path: "/", element: <ExplorePage /> },
       { path: "/papers", element: <PapersPage /> },
-      { path: "/papers/:id", element: soon("Paper page", "Lesson 13") },
+      { path: "/papers/:id", element: <PaperPage /> },
       { path: "/search", element: <SearchPage /> },
       { path: "/map", element: soon("Research map", "Lesson 14") },
       { path: "/trends", element: soon("Trends", "Lesson 15") },
