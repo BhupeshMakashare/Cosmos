@@ -1,4 +1,5 @@
 import type { ReactNode } from "react";
+import { Link } from "react-router-dom";
 
 /** A frosted-glass card around any content. */
 export function GlassCard({ children, className = "" }: { children: ReactNode; className?: string }) {
@@ -27,15 +28,16 @@ export function StatCard({ value, label }: { value: number; label: string }) {
 }
 
 const CHIP_TONES = {
-  topic: "bg-lavender-100 text-violet-600",
-  entity: "bg-dusty-100 text-navy-700",
-  method: "bg-mint-100 text-navy-700",
-  signal: "bg-blush-100 text-navy-700",
+  topic: "bg-lavender-100 text-violet-600 hover:bg-lavender-200",
+  entity: "bg-dusty-100 text-navy-700 hover:bg-dusty-200",
+  method: "bg-mint-100 text-navy-700 hover:bg-mint-200",
+  signal: "bg-blush-100 text-navy-700 hover:bg-blush-200",
 } as const;
 
-/** A small rounded tag. The tone says what kind of thing it is. */
-export function Chip({ children, tone = "topic" }: { children: ReactNode; tone?: keyof typeof CHIP_TONES }) {
-  return <span className={`inline-flex rounded-full px-2.5 py-0.5 text-xs font-medium ${CHIP_TONES[tone]}`}>{children}</span>;
+/** A small rounded tag. With `to`, it becomes a link inside COSMOS. */
+export function Chip({ children, tone = "topic", to }: { children: ReactNode; tone?: keyof typeof CHIP_TONES; to?: string }) {
+  const cls = `inline-flex rounded-full px-2.5 py-0.5 text-xs font-medium transition-colors ${CHIP_TONES[tone]}`;
+  return to ? <Link to={to} className={cls}>{children}</Link> : <span className={cls}>{children}</span>;
 }
 
 /** Shown when there is nothing to display. Never leave a blank space. */
