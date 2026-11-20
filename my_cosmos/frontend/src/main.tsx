@@ -9,6 +9,7 @@ import { MapPage } from "./pages/MapPage";
 import { PaperPage } from "./pages/PaperPage";
 import { PapersPage } from "./pages/PapersPage";
 import { SearchPage } from "./pages/SearchPage";
+import { TrendsPage } from "./pages/TrendsPage";
 
 const soon = (title: string, lesson: string) => <ComingSoonPage title={title} lesson={lesson} />;
 
@@ -21,7 +22,7 @@ const router = createBrowserRouter([
       { path: "/papers/:id", element: <PaperPage /> },
       { path: "/search", element: <SearchPage /> },
       { path: "/map", element: <MapPage /> },
-      { path: "/trends", element: soon("Trends", "Lesson 15") },
+      { path: "/trends", element: <TrendsPage /> },
       { path: "/opportunities", element: soon("Research opportunities", "Lesson 16") },
       { path: "/assistant", element: soon("Research assistant", "Lesson 17") },
       { path: "*", element: soon("Lost in space", "404") },
