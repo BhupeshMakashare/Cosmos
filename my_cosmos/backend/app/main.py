@@ -2,11 +2,10 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
-from app import papers_api
+from app import papers_api, search
 
 app = FastAPI(title="My COSMOS API")
 
-# Let our website (and only our website) read the API's answers.
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["http://localhost:5173", "http://localhost:5174"],
@@ -15,6 +14,7 @@ app.add_middleware(
 )
 
 app.include_router(papers_api.router)
+app.include_router(search.router)
 
 
 @app.get("/health")

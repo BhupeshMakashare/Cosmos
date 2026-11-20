@@ -6,6 +6,7 @@ import { AppShell } from "./layouts/AppShell";
 import { ComingSoonPage } from "./pages/ComingSoonPage";
 import { ExplorePage } from "./pages/ExplorePage";
 import { PapersPage } from "./pages/PapersPage";
+import { SearchPage } from "./pages/SearchPage";
 
 const soon = (title: string, lesson: string) => <ComingSoonPage title={title} lesson={lesson} />;
 
@@ -16,7 +17,7 @@ const router = createBrowserRouter([
       { path: "/", element: <ExplorePage /> },
       { path: "/papers", element: <PapersPage /> },
       { path: "/papers/:id", element: soon("Paper page", "Lesson 13") },
-      { path: "/search", element: soon("Semantic search", "Lesson 12") },
+      { path: "/search", element: <SearchPage /> },
       { path: "/map", element: soon("Research map", "Lesson 14") },
       { path: "/trends", element: soon("Trends", "Lesson 15") },
       { path: "/opportunities", element: soon("Research opportunities", "Lesson 16") },
