@@ -1,1 +1,1 @@
-{"root":["./src/app.tsx","./src/main.tsx","./src/vite-env.d.ts","./src/components/ui.tsx"],"version":"5.9.3"}
+{"root":["./src/main.tsx","./src/types.ts","./src/vite-env.d.ts","./src/api/datasource.ts","./src/api/index.ts","./src/api/mock.ts","./src/components/asyncview.tsx","./src/components/cosmicbackground.tsx","./src/components/ui.tsx","./src/hooks/useasync.ts","./src/layouts/appshell.tsx","./src/pages/comingsoonpage.tsx","./src/pages/explorepage.tsx"],"version":"5.9.3"}

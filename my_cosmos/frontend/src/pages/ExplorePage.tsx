@@ -1,15 +1,10 @@
-import { useEffect, useState } from "react";
-import type { Paper } from "../types";
+import { api } from "../api";
+import { AsyncView } from "../components/AsyncView";
+import { StatCard } from "../components/ui";
+import { useAsync } from "../hooks/useAsync";
 
 export function ExplorePage() {
-  // null = "not loaded yet"
-  const [papers, setPapers] = useState<Paper[] | null>(null);
-
-  useEffect(() => {
-    fetch("/data/papers.json")
-      .then((response) => response.json())
-      .then((data: Paper[]) => setPapers(data));
-  }, []);
+  const stats = useAsync(() => api.getStats(), []);
 
   return (
     <section className="container-cosmos py-20">
@@ -17,15 +12,24 @@ export function ExplorePage() {
       <h1 className="mt-3 text-4xl font-bold sm:text-6xl">
         Explore humanity's knowledge <span className="text-violet-500">beyond Earth.</span>
       </h1>
-      {papers === null ? (
-        <p className="mt-6 text-navy-500">Loading papers…</p>
-      ) : (
-        <div className="glass mt-8 max-w-xl p-6">
-          <p className="text-2xl font-semibold">{papers.length.toLocaleString()} papers loaded</p>
-          <p className="mt-2 text-sm text-navy-500">First paper: {papers[0].title}</p>
-          <p className="mt-1 text-sm text-navy-500">Synthetic demo data: {papers[0].is_synthetic ? "yes" : "no"}</p>
-        </div>
-      )}
+
+      <div className="mt-10">
+        <AsyncView state={stats} loading="Counting the stars…">
+          {(s) => (
+            <>
+              <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">
+                <StatCard value={s.papers} label="Research papers" />
+                <StatCard value={s.countries} label="Countries" />
+                <StatCard value={s.topics} label="Research topics" />
+                <StatCard value={s.organizations} label="Organizations" />
+              </div>
+              {s.synthetic && (
+                <p className="mt-3 text-sm text-navy-500">Demo data: these are synthetic records, not real research.</p>
+              )}
+            </>
+          )}
+        </AsyncView>
+      </div>
     </section>
   );
 }
