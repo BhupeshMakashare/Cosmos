@@ -6,6 +6,7 @@ import { AppShell } from "./layouts/AppShell";
 import { ComingSoonPage } from "./pages/ComingSoonPage";
 import { ExplorePage } from "./pages/ExplorePage";
 import { MapPage } from "./pages/MapPage";
+import { OpportunitiesPage } from "./pages/OpportunitiesPage";
 import { PaperPage } from "./pages/PaperPage";
 import { PapersPage } from "./pages/PapersPage";
 import { SearchPage } from "./pages/SearchPage";
@@ -23,7 +24,7 @@ const router = createBrowserRouter([
       { path: "/search", element: <SearchPage /> },
       { path: "/map", element: <MapPage /> },
       { path: "/trends", element: <TrendsPage /> },
-      { path: "/opportunities", element: soon("Research opportunities", "Lesson 16") },
+      { path: "/opportunities", element: <OpportunitiesPage /> },
       { path: "/assistant", element: soon("Research assistant", "Lesson 17") },
       { path: "*", element: soon("Lost in space", "404") },
     ],
