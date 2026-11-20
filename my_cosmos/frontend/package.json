@@ -7,7 +7,8 @@
     "dev": "vite",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "dev:api": "vite --mode api --port 5174 --strictPort"
   },
   "dependencies": {
     "react": "^18.3.1",
