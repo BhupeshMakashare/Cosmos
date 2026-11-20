@@ -2,7 +2,7 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
-from app import papers_api, recommend, search
+from app import graph, papers_api, recommend, search
 
 app = FastAPI(title="My COSMOS API")
 
@@ -16,6 +16,7 @@ app.add_middleware(
 app.include_router(papers_api.router)
 app.include_router(search.router)
 app.include_router(recommend.router)
+app.include_router(graph.router)
 
 
 @app.get("/health")

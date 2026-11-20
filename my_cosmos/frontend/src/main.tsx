@@ -5,6 +5,7 @@ import "./index.css";
 import { AppShell } from "./layouts/AppShell";
 import { ComingSoonPage } from "./pages/ComingSoonPage";
 import { ExplorePage } from "./pages/ExplorePage";
+import { MapPage } from "./pages/MapPage";
 import { PaperPage } from "./pages/PaperPage";
 import { PapersPage } from "./pages/PapersPage";
 import { SearchPage } from "./pages/SearchPage";
@@ -19,7 +20,7 @@ const router = createBrowserRouter([
       { path: "/papers", element: <PapersPage /> },
       { path: "/papers/:id", element: <PaperPage /> },
       { path: "/search", element: <SearchPage /> },
-      { path: "/map", element: soon("Research map", "Lesson 14") },
+      { path: "/map", element: <MapPage /> },
       { path: "/trends", element: soon("Trends", "Lesson 15") },
       { path: "/opportunities", element: soon("Research opportunities", "Lesson 16") },
       { path: "/assistant", element: soon("Research assistant", "Lesson 17") },
