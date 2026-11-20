@@ -2,7 +2,7 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
-from app import graph, opportunities, papers_api, recommend, search, trends
+from app import assistant, graph, opportunities, papers_api, recommend, search, trends
 
 app = FastAPI(title="My COSMOS API")
 
@@ -19,8 +19,9 @@ app.include_router(recommend.router)
 app.include_router(graph.router)
 app.include_router(trends.router)
 app.include_router(opportunities.router)
+app.include_router(assistant.router)
 
 
 @app.get("/health")
 def health():
-    return {"status": "ok"}
+    return {"status": "ok", "answer_provider": assistant.PROVIDER.name}
